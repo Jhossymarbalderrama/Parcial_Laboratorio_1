@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1589477920 source:c:\users\balde\desktop\parcial laboratorio\menu.c
+	"menu.h"
+
+1589477254 c:\users\balde\desktop\parcial laboratorio\menu.h
+	<stdio.h>
+	<stdlib.h>
+
+1589480743 source:c:\users\balde\desktop\parcial laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"hardcodeo.h"
+	"input.h"
+	"cliente.h"
+	"mascotas.h"
+
+1589286440 c:\users\balde\desktop\parcial laboratorio\hardcodeo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"mascotas.h"
+
+1589475333 source:c:\users\balde\desktop\parcial laboratorio\hardcodeo.c
+	"hardcodeo.h"
+
+1589475164 source:c:\users\balde\desktop\parcial laboratorio\input.c
+	"input.h"
+	<ctype.h>
+
+1589475178 c:\users\balde\desktop\parcial laboratorio\input.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1589481565 c:\users\balde\desktop\parcial laboratorio\cliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1589477207 c:\users\balde\desktop\parcial laboratorio\mascotas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+
+1589481819 source:c:\users\balde\desktop\parcial laboratorio\mascotas.c
+	"mascotas.h"
+	"input.h"
+	"menu.h"
+
+1589481800 source:c:\users\balde\desktop\parcial laboratorio\cliente.c
+	"cliente.h"
+	"string.h"
+	"input.h"
+
