@@ -45,7 +45,7 @@ int main()
                             imprimir_clientes(lista_cliente,CLI);
                             break;
                         case 2:
-                            imprimir_mascotas(lista_mascotas,MAS,lista_cliente,CLI);
+                            imprimir_mascotas(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 3:
                             imprime_all_cliente_mascota(lista_mascotas,MAS,lista_cliente,CLI);
@@ -59,13 +59,13 @@ int main()
                             }
                             break;
                         case 5:
-                            if(baja_Mascota(lista_mascotas,MAS,lista_cliente,CLI) == 0)
+                            if(baja_Mascota(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ) == 0)
                             {
                                 id_Mascota--;
                             }
                             break;
                         case 6:
-                            modificacion_Mascota_por_ID(lista_mascotas,MAS,lista_cliente,CLI);
+                            modificacion_Mascota_por_ID(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 7:
                             if(alta_Cliente(lista_cliente,CLI,id_Cliente) == 0)
@@ -82,7 +82,7 @@ int main()
                             }
                             break;
                         case 9:
-                            ordena_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI);
+                            ordena_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 10:
                             modificacion_Cliente_por_ID(lista_cliente,CLI);
@@ -91,10 +91,10 @@ int main()
                             listar_Cliente_con_mas_de_una_Mascota(lista_cliente,CLI,lista_mascotas,MAS);
                             break;
                         case 12:
-                            listar_mascotas_mas_de_3_anios(lista_mascotas,MAS,lista_cliente,CLI);
+                            listar_mascotas_mas_de_3_anios(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 13:
-
+                            listar_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 14:
 

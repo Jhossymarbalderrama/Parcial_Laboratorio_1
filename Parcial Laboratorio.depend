@@ -54,7 +54,7 @@
 	"string.h"
 	"input.h"
 
-1589646323 source:c:\users\balde\desktop\parcial_laboratorio_1\hardcodeo.c
+1589653331 source:c:\users\balde\desktop\parcial_laboratorio_1\hardcodeo.c
 	"hardcodeo.h"
 
 1589645274 c:\users\balde\desktop\parcial_laboratorio_1\hardcodeo.h
@@ -68,7 +68,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1589649138 c:\users\balde\desktop\parcial_laboratorio_1\mascotas.h
+1589656137 c:\users\balde\desktop\parcial_laboratorio_1\mascotas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -83,7 +83,7 @@
 	<stdlib.h>
 	<string.h>
 
-1589648813 source:c:\users\balde\desktop\parcial_laboratorio_1\mascotas.c
+1589654540 source:c:\users\balde\desktop\parcial_laboratorio_1\mascotas.c
 	"mascotas.h"
 	"input.h"
 	"menu.h"
@@ -102,7 +102,7 @@
 	"mascotas.h"
 	"menu.h"
 
-1589648835 source:c:\users\balde\desktop\parcial_laboratorio_1\main.c
+1589656183 source:c:\users\balde\desktop\parcial_laboratorio_1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"

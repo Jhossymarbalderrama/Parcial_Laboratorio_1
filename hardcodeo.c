@@ -22,23 +22,25 @@
  }
 
  void harcodeo_Mascotas(eMascotas lista_mascotas[]){
-    eMascotas aux[11] = {{1,"lolo","perro","pitbull",4,11.50,'m',1,0},
-                         {2,"pepe","perro","bulldog",5,12.00,'m',1,0},
-                         {3,"maria","gato","siames",3,4.00,'h',2,0},
-                         {4,"lola","gato","siames",4,4.30,'h',2,0},
-                         {5,"carlos","perro","bulldog",6,10.00,'m',5,0},
-                         {6,"pablo","perro","pitbull",5,12.10,'m',3,0},
-                         {7,"polo","iguana","iguana",2,2.50,'m',3,0},
-                         {8,"jose","perro","labrador",5,12.2,'m',4,0},
-                         {9,"pepo","gato","siames",4,3.5,'h',1,0},
-                         {10,"carlos","gato","siames",4,4.20,'m',5,0},
-                         {11,"ana","gato","siames",5,4.00,'h',5,0}};
+    eMascotas aux[11] = {{1,"lolo",1,1,4,11.50,'m',1,0},
+                         {2,"pepe",1,2,5,12.00,'m',1,0},
+                         {3,"maria",2,3,3,4.00,'h',2,0},
+                         {4,"lola",2,3,4,4.30,'h',2,0},
+                         {5,"carlos",1,2,6,10.00,'m',5,0},
+                         {6,"pablo",1,1,5,12.10,'m',3,0},
+                         {7,"polo",3,4,2,2.50,'m',3,0},
+                         {8,"jose",1,5,5,12.2,'m',4,0},
+                         {9,"pepo",2,3,4,3.5,'h',1,0},
+                         {10,"carlos",2,3,4,4.20,'m',5,0},
+                         {11,"ana",2,3,5,4.00,'h',5,0}};
 
     for(int i = 0; i< 11;i++){
         lista_mascotas[i].id = aux[i].id;
         strcpy(lista_mascotas[i].nombre,aux[i].nombre);
-        strcpy(lista_mascotas[i].tipo,aux[i].tipo);
-        strcpy(lista_mascotas[i].raza,aux[i].raza);
+        /**strcpy(lista_mascotas[i].tipo,aux[i].tipo);*/
+        lista_mascotas[i].idtipo = aux[i].idtipo;
+        /**strcpy(lista_mascotas[i].raza,aux[i].raza);*/
+        lista_mascotas[i].idraza = aux[i].idraza;
         lista_mascotas[i].edad = aux[i].edad;
         lista_mascotas[i].peso = aux[i].peso;
         lista_mascotas[i].sexo = aux[i].sexo;
