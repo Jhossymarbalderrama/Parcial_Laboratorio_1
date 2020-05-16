@@ -47,7 +47,7 @@ void imprime_duenio(eCliente lista_cliente);
 void imprimir_duenios(eCliente lista_cliente[],int len);
 int validacion_id_cliente(eCliente lista_cliente[],int len,int id_cliente);
 
-int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista_cliente[],int len_cliente);
+int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista_cliente[],int len_cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza);
 
 int verificacion_Id(eMascotas lista_mascota[],int len,int id);
 int existe_ID(eMascotas lista_mascota[],int len,int id);

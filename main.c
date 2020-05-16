@@ -51,7 +51,7 @@ int main()
                             imprime_all_cliente_mascota(lista_mascotas,MAS,lista_cliente,CLI);
                             break;
                         case 4:
-                            if(alta_Mascota(lista_mascotas,MAS, id_Mascota,lista_cliente,CLI) == 0)
+                            if(alta_Mascota(lista_mascotas,MAS, id_Mascota,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ) == 0)
                             {
                                 printf("\n [ - La Mascota se dio de alta Exitosamente - ]\n\n");
                                 system("pause");

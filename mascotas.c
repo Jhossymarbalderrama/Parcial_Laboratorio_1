@@ -234,7 +234,7 @@ int validacion_id_cliente(eCliente lista_cliente[],int len,int id_cliente)
 }
 
 
-int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista_cliente[],int len_cliente)
+int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista_cliente[],int len_cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
 {
     int allOk = -1;
     int indice;
@@ -246,6 +246,12 @@ int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista
     float peso;
     char sexo;
     int idCliente;
+
+    int id_Tipo;
+    int seguir_tipo = 0;
+    int id_Raza;
+    int seguir_raza = 0;
+
 
     id_mascota = verificacion_Id(lista_mascota,len,id_mascota);
 
@@ -261,8 +267,37 @@ int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista
     else
     {
         getChar("Ingrese Nombre: ",51,nombre);
-        getChar("Ingrese Tipo: ",51,tipo);
-        getChar("Ingrese Raza: ",51,raza);
+
+        /**TIPO*/
+        /**getChar("Ingrese Tipo: ",51,tipo);*/
+        imprime_all_tipos(lista_Tipo,len_Tipo);
+        do{
+            id_Tipo = getInt("Ingrese ID del Tipo: ");
+
+            for(int i = 0; i < len_Tipo;i++){
+                 if(lista_Tipo[i].isEmpty == 0 && lista_Tipo[i].id == id_Tipo){
+                    strcpy(tipo,lista_Tipo[i].tipo);
+                    seguir_tipo = -1;
+                 }
+            }
+        }while(seguir_tipo == 0);
+
+        /**RAZA*/
+        /**getChar("Ingrese Raza: ",51,raza);*/
+        imprime_all_razas(lista_Raza,len_Raza);
+        do{
+           id_Raza = getInt("Ingrese ID de la Raza: ");
+
+           for(int i = 0;i<len_Raza;i++){
+                if(lista_Raza[i].isEmpty == 0 && lista_Raza[i].id == id_Raza){
+                    strcpy(raza,lista_Raza[i].raza);
+                    seguir_raza = -1;
+                }
+           }
+
+        }while(seguir_raza == 0);
+
+
         edad = getInt("Ingrese Edad: ");
         peso = getFloat("Ingrese Peso: ");
         sexo = getCaracter("Ingrese Sexo: ");
