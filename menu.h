@@ -8,3 +8,4 @@
 
 int menu(void);
 int menu_modificacion_Mascota(void);
+int menu_modificacion_Cliente(void);

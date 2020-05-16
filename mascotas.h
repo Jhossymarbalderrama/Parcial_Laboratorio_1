@@ -18,6 +18,17 @@ typedef struct{
     int isEmpty;
 }eMascotas;
 
+typedef struct{
+   int id;
+   char tipo[31];
+   int isEmpty;
+}eTipo;
+
+typedef struct{
+    int id;
+    char raza[31];
+    int isEmpty;
+}eRaza;
 
 #endif // MASCOTAS_H_INCLUDED
 
@@ -38,7 +49,8 @@ int validacion_id_cliente(eCliente lista_cliente[],int len,int id_cliente);
 
 int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista_cliente[],int len_cliente);
 
-
+int verificacion_Id(eMascotas lista_mascota[],int len,int id);
+int existe_ID(eMascotas lista_mascota[],int len,int id);
 int buscar_Mascota_por_ID(eMascotas lista_mascota[],int len,int id);
 void imprimi_Mascota_por_Indice(eMascotas lista_mascota[],int len,int indice,eCliente lista_cliente[],int len_cliente);
 int elimina_Mascota(eMascotas lista_mascota[],int len,int id);
@@ -46,3 +58,37 @@ int baja_Mascota(eMascotas lista_mascota[],int len,eCliente lista_cliente[],int 
 
 void modificar_Mascota(eMascotas lista_mascota[],int len,int id,int indice,eCliente lista_cliente[],int len_cliente);
 void modificacion_Mascota_por_ID(eMascotas lista_mascota[],int len,eCliente lista_cliente[],int len_cliente);
+
+/**Cliente - Mascotas*/
+/**int buscar_Cliente_por_ID(eCliente listaCliente[],int len,int id);*/
+/**void imprimi_Cliente_por_Indice(eCliente listaCliente[],int len,int indice);*/
+/**int elimina_Cliente(eCliente listaCliente[],int len,int id);*/
+int baja_Cliente(eCliente listaCliente[],int len,eMascotas lista_Mascota[],int len_Mascota);
+int busco_y_elimino_Mascotas_Por_ID_Cliente(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente,int id_Cliente);
+
+void ordena_mascotas_por_tipo(eMascotas lista_Mascotas[],int len_Mascotas,eCliente listaCliente[],int len_Cliente);
+
+/**12*/void listar_Cliente_con_mas_de_una_Mascota(eCliente listaCliente[],int len_Cliente,eMascotas lista_Mascota[],int len_Mascota);
+int busca_mascotas_por_ID_Cliente(eMascotas lista_Mascota[],int len_Mascota,int id_cliente);
+
+/**13*/void listar_mascotas_mas_de_3_anios(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente);
+
+void listar_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente);
+
+
+/**Otras Estructuras TIPO Y RAZA*/
+/**TIPO*/
+int inicializar_tipos(eTipo lista_Tipo[],int len_Tipo);
+int inicializar_all_tipos(eTipo lista_Tipo[],int len_Tipo);
+
+void imprime_tipo(eTipo lista_Tipo);
+void imprime_all_tipos(eTipo lista_Tipo[],int len_Tipo);
+
+/**RAZA*/
+int inicializar_razas(eRaza lista_Raza[],int len_Raza);
+int inicializar_all_razas(eRaza lista_Raza[],int len_Raza);
+
+void imprime_raza(eRaza lista_Raza);
+void imprime_all_razas(eRaza lista_Raza[],int len_Razas);
+
+

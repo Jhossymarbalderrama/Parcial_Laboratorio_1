@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #ifndef CLIENTE_H_INCLUDED
 #define CLIENTE_H_INCLUDED
 typedef struct{
@@ -26,3 +27,10 @@ int buscarLibre_Cliente(eCliente listaCliente[], int len);
 eCliente addCliente(int id,char nombre[],char apellido[],char localidad[],int telefono,int edad,char sexo);
 int alta_Cliente(eCliente listaCliente[],int len,int id_cliente);
 
+int buscar_Cliente_por_ID(eCliente listaCliente[],int len,int id);
+void imprimi_Cliente_por_Indice(eCliente listaCliente[],int len,int indice);
+int elimina_Cliente(eCliente listaCliente[],int len,int id);
+
+
+void modificacion_Cliente(eCliente listaCliente[],int len,int indice);
+void modificacion_Cliente_por_ID(eCliente listaCliente[],int len);

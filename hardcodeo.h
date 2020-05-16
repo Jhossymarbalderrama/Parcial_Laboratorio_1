@@ -12,3 +12,5 @@
 
  void harcodeo_Cliente(eCliente lista_cliente[]);
  void harcodeo_Mascotas(eMascotas lista_mascotas[]);
+ void harcodeo_Tipo(eTipo lista_Tipo[]);
+ void harcodeo_Raza(eRaza lista_Raza[]);

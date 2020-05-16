@@ -48,3 +48,30 @@
 
  }
 
+void harcodeo_Tipo(eTipo lista_Tipo[]){
+    eTipo auxTipo[3] = {{1,"Perro",0},
+                        {2,"Gato",0},
+                        {3,"Iguana",0}};
+
+    for(int i = 0; i < 3;i++){
+        lista_Tipo[i].id = auxTipo[i].id;
+        strcpy(lista_Tipo[i].tipo,auxTipo[i].tipo);
+        lista_Tipo[i].isEmpty = auxTipo[i].isEmpty;
+    }
+
+}
+
+void harcodeo_Raza(eRaza lista_Raza[]){
+    eRaza auxRaza[5] = {{1,"Pitbull",0},
+                        {2,"Bulldog",0},
+                        {3,"Siames",0},
+                        {4,"Iguana",0},
+                        {5,"Labrador",0}};
+
+    for(int i = 0; i < 5;i++){
+        lista_Raza[i].id = auxRaza[i].id;
+        strcpy(lista_Raza[i].raza,auxRaza[i].raza);
+        lista_Raza[i].isEmpty = auxRaza[i].isEmpty;
+    }
+
+}
