@@ -918,3 +918,162 @@ void imprime_all_razas(eRaza lista_Raza[],int len_Razas)
     }
     // system("pause");
 }
+
+/**14 -ordenar a los dueños por cantidades de mascotas y mostrarlos.*/
+void ordena_duenios_por_cantidad_mascotas(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCiente[],int len_Cliente){
+    eCliente auxCliente;
+
+    int cant_duenioI;
+    int cant_duenioJ;
+
+    for(int i = 0 ;i < len_Cliente-1; i++){
+        if(listaCiente[i].isEmpty == 0){
+            for(int j = i+1; j < len_Cliente;j ++){
+                if(listaCiente[j].isEmpty == 0){
+                    cant_duenioI = cantidad_de_mascota_por_cliente(lista_Mascota,len_Mascota,listaCiente[i].id);
+                    cant_duenioJ = cantidad_de_mascota_por_cliente(lista_Mascota,len_Mascota,listaCiente[j].id);
+                        if(cant_duenioI < cant_duenioJ){
+                            auxCliente = listaCiente[i];
+                            listaCiente[i] = listaCiente[j];
+                            listaCiente[j] = auxCliente;
+                        }
+                }
+            }
+        }
+    }
+
+    imprimir_clientes(listaCiente,len_Cliente);
+
+}
+
+int cantidad_de_mascota_por_cliente(eMascotas lista_Mascota[],int len_Mascotan,int id_Cliente){
+    int contador = 0;
+
+    for(int i = 0;i <len_Mascotan;i++){
+        if(lista_Mascota[i].isEmpty == 0 && lista_Mascota[i].idCliente == id_Cliente){
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+
+/**15 - ordenar a los dueños por cantidades de mascotas y por orden alfabético de los
+nombres y mostrarlos.*/
+void ordena_duenios_por_cantidad_mascotas_y_nombre(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCiente[],int len_Cliente){
+    eCliente auxCliente;
+
+    int cant_duenioI;
+    int cant_duenioJ;
+
+    for(int i = 0 ;i < len_Cliente-1; i++){
+        if(listaCiente[i].isEmpty == 0){
+            for(int j = i+1; j < len_Cliente;j ++){
+                if(listaCiente[j].isEmpty == 0){
+                    cant_duenioI = cantidad_de_mascota_por_cliente(lista_Mascota,len_Mascota,listaCiente[i].id);
+                    cant_duenioJ = cantidad_de_mascota_por_cliente(lista_Mascota,len_Mascota,listaCiente[j].id);
+                        if(cant_duenioI < cant_duenioJ){
+                            auxCliente = listaCiente[i];
+                            listaCiente[i] = listaCiente[j];
+                            listaCiente[j] = auxCliente;
+                        }else if(cant_duenioI == cant_duenioJ && strcmp(listaCiente[i].nombre,listaCiente[j].nombre)>0){
+                                auxCliente = listaCiente[i];
+                                listaCiente[i] = listaCiente[j];
+                                listaCiente[j] = auxCliente;
+                        }
+                }
+            }
+        }
+    }
+
+    imprimir_clientes(listaCiente,len_Cliente);
+
+}
+
+/**16 - el promedio de edad entre las mascotas*/
+void promedio_Edad_Mascotas(eMascotas lista_Mascota[],int len_Mascota){
+    int cantidad_Mascotas = cantidad_de_mascotas(lista_Mascota,len_Mascota);
+    int total_Edades = suma_de_Edades_Mascotas(lista_Mascota,len_Mascota);
+    float promedio = (float) total_Edades / cantidad_Mascotas;
+
+    //printf("cantidad mascotas: %d\n",cantidad_Mascotas);
+    //printf("suma total edades: %d\n",total_Edades);
+    printf("\n[ El Promedio de Edades entre las Mascotas es de : %0.2f ]\n",promedio);
+    system("pause");
+}
+
+int cantidad_de_mascotas(eMascotas lista_Mascota[],int len_Mascota){
+    int cantidad = 0;
+
+    for(int i = 0; i < len_Mascota ; i++){
+        if(lista_Mascota[i].isEmpty == 0){
+            cantidad++;
+        }
+    }
+
+    return cantidad;
+}
+
+int suma_de_Edades_Mascotas(eMascotas lista_Mascota[],int len_Mascota){
+    int total = 0;
+
+    for(int i = 0; i < len_Mascota ; i++){
+        if(lista_Mascota[i].isEmpty == 0){
+            total = total + lista_Mascota[i].edad;
+        }
+    }
+
+    return total;
+}
+
+/**17 - el promedio de edad entre las mascotas, por tipo*/
+void promedio_Edad_Mascotas_por_Tipo(eMascotas lista_Mascota[],int len_Mascota,eTipo lista_tipo[],int len_tipo){
+    int tipo;
+    int cantidad_Mascotas;
+    int total_Edades;
+    float promedio;
+    char nombre_tipo[31];
+
+    imprime_all_tipos(lista_tipo,len_tipo);
+    tipo = getInt("Ingrese Tipo: ");
+
+    cantidad_Mascotas = cantidad_de_mascotas_por_tipo(lista_Mascota,len_Mascota,tipo);
+    total_Edades = suma_de_Edades_Mascotas_por_tipo(lista_Mascota,len_Mascota,tipo);
+    promedio = (float) total_Edades / cantidad_Mascotas;
+
+    for(int i = 0 ; i < len_tipo ; i++){
+        if(lista_tipo[i].isEmpty == 0 && lista_tipo[i].id == tipo){
+            strcpy(nombre_tipo,lista_tipo[i].tipo);
+        }
+    }
+
+    printf("\n[ El Promedio de Edades entre las Mascotas del tipo %s es : %0.2f ]\n",nombre_tipo,promedio);
+    system("pause");
+}
+
+int cantidad_de_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo){
+    int cantidad = 0;
+
+    for(int i = 0; i < len_Mascota ; i++){
+        if(lista_Mascota[i].isEmpty == 0 && lista_Mascota[i].idtipo == tipo){
+            cantidad++;
+        }
+    }
+
+    return cantidad;
+}
+
+int suma_de_Edades_Mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo){
+    int total = 0;
+
+    for(int i = 0; i < len_Mascota ; i++){
+        if(lista_Mascota[i].isEmpty == 0 && lista_Mascota[i].idtipo == tipo){
+            total = total + lista_Mascota[i].edad;
+        }
+    }
+
+    return total;
+}
+
+

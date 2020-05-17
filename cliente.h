@@ -34,3 +34,7 @@ int elimina_Cliente(eCliente listaCliente[],int len,int id);
 
 void modificacion_Cliente(eCliente listaCliente[],int len,int indice);
 void modificacion_Cliente_por_ID(eCliente listaCliente[],int len);
+
+/**18*/void promedio_de_varones_y_mujeres_Clientes(eCliente listaCliente[],int len_Cliente);
+int cantidad_cliente_por_sexo(eCliente listaCliente[],int len_Cliente,int sexo);
+int cantidad_total_clientes(eCliente listaCliente[],int len_Cliente);

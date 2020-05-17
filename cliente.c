@@ -287,3 +287,60 @@ void modificacion_Cliente_por_ID(eCliente listaCliente[],int len){
     }
 
 }
+
+/**18 -el promedio que tengo entre varones y mujeres de mis clientes*/
+void promedio_de_varones_y_mujeres_Clientes(eCliente listaCliente[],int len_Cliente){
+    int total_Clientes = cantidad_total_clientes(listaCliente,len_Cliente);
+    int varones = cantidad_cliente_por_sexo(listaCliente,len_Cliente,0);
+    int mujeres = cantidad_cliente_por_sexo(listaCliente,len_Cliente,1);
+
+    float promedio_Hombres = (float) total_Clientes / varones;
+    float promedio_Mujeres = (float) total_Clientes / mujeres;
+
+
+    printf("\nEl Promedio de Varones es : %0.2f \nEl Promedio de Mujeres es: %0.2f\n",promedio_Hombres,promedio_Mujeres);
+    system("pause");
+}
+
+
+
+/** \brief
+ *
+ * \param listaCliente[] eCliente
+ * \param len_Cliente int
+ * \param sexo int (0 para Hombres, 1 para Mujeres)
+ * \return int
+ *
+ */
+int cantidad_cliente_por_sexo(eCliente listaCliente[],int len_Cliente,int sexo){
+    int cant_cliente = 0;
+    for(int i = 0;i <len_Cliente ; i++){
+        if(listaCliente[i].isEmpty == 0){
+                if(sexo == 0){
+                        if(listaCliente[i].sexo == 'M' || listaCliente[i].sexo == 'm'){
+                            cant_cliente++;
+                        }
+                }else{
+                        if(listaCliente[i].sexo == 'F' || listaCliente[i].sexo == 'f'){
+                            cant_cliente++;
+                        }
+                }
+        }
+
+    }
+
+    return cant_cliente;
+}
+
+int cantidad_total_clientes(eCliente listaCliente[],int len_Cliente){
+    int total = 0;
+
+    for(int i = 0; i < len_Cliente; i++){
+        if(listaCliente[i].isEmpty == 0){
+            total++;
+        }
+    }
+
+    return total;
+}
+

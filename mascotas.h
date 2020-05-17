@@ -77,6 +77,18 @@ int busca_mascotas_por_ID_Cliente(eMascotas lista_Mascota[],int len_Mascota,int 
 
 /**13*/void listar_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza);
 
+/**14*/void ordena_duenios_por_cantidad_mascotas(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCiente[],int len_Cliente);
+int cantidad_de_mascota_por_cliente(eMascotas lista_Mascota[],int len_Mascotan,int id_Cliente);
+
+/**15*/void ordena_duenios_por_cantidad_mascotas_y_nombre(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCiente[],int len_Cliente);
+
+/**16*/void promedio_Edad_Mascotas(eMascotas lista_Mascota[],int len_Mascota);
+int cantidad_de_mascotas(eMascotas lista_Mascota[],int len_Mascota);
+int suma_de_Edades_Mascotas(eMascotas lista_Mascota[],int len_Mascota);
+
+/**17*/void promedio_Edad_Mascotas_por_Tipo(eMascotas lista_Mascota[],int len_Mascota,eTipo lista_tipo[],int len_tipo);
+int cantidad_de_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
+int suma_de_Edades_Mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
 
 /**Otras Estructuras TIPO Y RAZA*/
 /**TIPO*/

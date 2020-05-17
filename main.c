@@ -97,25 +97,27 @@ int main()
                             listar_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 14:
-
+                            ordena_duenios_por_cantidad_mascotas(lista_mascotas,MAS,lista_cliente,CLI);
                             break;
                         case 15:
-
+                            ordena_duenios_por_cantidad_mascotas_y_nombre(lista_mascotas,MAS,lista_cliente,CLI);
                             break;
                         case 16:
-
+                            promedio_Edad_Mascotas(lista_mascotas,MAS);
                             break;
                         case 17:
-
+                            promedio_Edad_Mascotas_por_Tipo(lista_mascotas,MAS,lista_tipo,TIP);
                             break;
                         case 18:
-
+                            promedio_de_varones_y_mujeres_Clientes(lista_cliente,CLI);
                             break;
                         case 28:
                             imprime_all_tipos(lista_tipo,TIP);
+                            system("pause");
                             break;
                         case 29:
                             imprime_all_razas(lista_raza,RAZ);
+                            system("pause");
                             break;
                         case 30:
                             printf("\nConfirmar Salida? [S / N]: ");
