@@ -1,6 +1,8 @@
+#include <ctype.h>
 #include "mascotas.h"
 #include "input.h"
 #include "menu.h"
+
 
 
 void imprime_mascota(eMascotas listaMascota,eCliente lista_cliente[],int len_cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
@@ -31,7 +33,7 @@ void imprime_mascota(eMascotas listaMascota,eCliente lista_cliente[],int len_cli
         }
     }
 
-    printf("%2d\t  %10s\t %10s\t   %10s\t   %2d\t    %3.2f\t  %c\t  %10s\t \n",
+    printf("%2d\t  %10s\t %10s\t   %10s\t   %2d\t    %5.2f Kg\t  %c\t  %10s\t \n",
            listaMascota.id,
            listaMascota.nombre,
            nombreTipo,
@@ -46,9 +48,9 @@ void imprimir_mascotas(eMascotas listaMascota[],int len,eCliente lista_cliente[]
 {
     int flag = 0;
 
-    printf("------- Lista de mascotas -------\n\n");
+    printf("     [     -------    LISTA DE MASCOTAS    -------     ]\n\n");
 
-    printf("ID  |         NOMBRE  |        TIPO   |         RAZA  |    EDAD  |   PESO  |    SEXO |   NOMBRE DUENIO\n\n");
+    printf("ID  |         NOMBRE  |        TIPO   |         RAZA  |    EDAD  |     PESO  |    SEXO |   NOMBRE DUENIO\n\n");
     for(int i=0; i < len; i++)
     {
         if(listaMascota[i].isEmpty == 0)
@@ -62,9 +64,6 @@ void imprimir_mascotas(eMascotas listaMascota[],int len,eCliente lista_cliente[]
     {
         printf("\n---   No hay MASCOTAS que mostrar   ---\n");
     }
-    system("pause");
-
-
 }
 
 int inicializar_mascotas(eMascotas listaMascota[],int len)
@@ -96,32 +95,52 @@ int inicializa_all_mascotas(eMascotas listaMascota[],int len)
 
 }
 
-void imprime_cliente_mascota(eMascotas listaMascota,eCliente listaCliente,int view)
+void imprime_cliente_mascota(eMascotas listaMascota,eCliente listaCliente,int view,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
 {
+    char nombreTipo[31];
+    char nombreRaza[31];
+
+
+    for(int j = 0; j< len_Tipo; j++)
+    {
+        if(lista_Tipo[j].isEmpty == 0 && lista_Tipo[j].id == listaMascota.idtipo)
+        {
+            for(int k = 0; k < len_Raza; k++)
+            {
+                if(lista_Raza[k].isEmpty == 0 && lista_Raza[k].id == listaMascota.idraza)
+                {
+                    strcpy(nombreTipo,lista_Tipo[j].tipo);
+                    strcpy(nombreRaza,lista_Raza[k].raza);
+                }
+            }
+        }
+    }
+
 
     if(view == 1)
     {
-        printf(" %2d\t          %10s\t     %10s\t     %2d\t  %2d \n",
+        printf(" %2d\t          %10s\t     %10s\t     %10s\t  %10s \n",
                listaCliente.id,
                listaCliente.nombre,
                listaMascota.nombre,
-               listaMascota.idtipo,
-               listaMascota.idraza);
+               nombreTipo,
+               nombreRaza);
     }
     else
     {
-        printf("                     %26s\t     %2d\t  %2d \n",
+        printf("                     %26s\t     %10s\t  %10s \n",
                listaMascota.nombre,
-               listaMascota.idtipo,
-               listaMascota.idraza);
+               nombreTipo,
+               nombreRaza);
     }
 }
 
-void imprime_all_cliente_mascota(eMascotas lista_mascota[],int len_mascota,eCliente lista_cliente[],int len_cliente)
+void imprime_all_cliente_mascota(eMascotas lista_mascota[],int len_mascota,eCliente lista_cliente[],int len_cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
 {
     int idAnterior = 0;
 
-    printf("\n        [   -----    CLIENTES CON SUS MASCOTAS    -----   ]\n\n");
+    system("cls");
+    printf("\n        [     -----    CLIENTES CON SUS MASCOTAS    -----     ]\n\n");
     printf("ID Cliente |    NOMBRE CLIENTE |     NOMBRE MASCOTA |       TIPO  |     RAZA \n");
     for(int i = 0; i < len_cliente; i++)
     {
@@ -134,12 +153,12 @@ void imprime_all_cliente_mascota(eMascotas lista_mascota[],int len_mascota,eClie
                     if(idAnterior != lista_cliente[i].id)
                     {
                         printf("\n");
-                        imprime_cliente_mascota(lista_mascota[j],lista_cliente[i],1);
+                        imprime_cliente_mascota(lista_mascota[j],lista_cliente[i],1,lista_Tipo,len_Tipo,lista_Raza,len_Raza);
                         idAnterior = lista_cliente[i].id;
                     }
                     else
                     {
-                        imprime_cliente_mascota(lista_mascota[j],lista_cliente[i],0);
+                        imprime_cliente_mascota(lista_mascota[j],lista_cliente[i],0,lista_Tipo,len_Tipo,lista_Raza,len_Raza);
                     }
                 }
             }
@@ -271,7 +290,6 @@ int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista
     float peso;
     char sexo;
     int idCliente;
-
     //int id_Tipo;
     //int seguir_tipo = 0;
     //int id_Raza;
@@ -281,7 +299,7 @@ int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista
     id_mascota = verificacion_Id(lista_mascota,len,id_mascota);
 
     system("cls");
-    printf("\n   -----    Alta de Mascota    -----   \n\n");
+    printf("\n     [     -----    ALTA DE MASCOTAS    -----     ]\n\n");
 
     indice = buscarLibre_Mascota(lista_mascota, len);
 
@@ -329,10 +347,13 @@ int alta_Mascota(eMascotas lista_mascota[],int len,int id_mascota,eCliente lista
         }while(seguir_raza == 0);
         */
 
-
         edad = getInt("Ingrese Edad: ");
         peso = getFloat("Ingrese Peso: ");
+
+
         sexo = getCaracter("Ingrese Sexo [H (hembre) / M (macho)]: ");
+        sexo = toupper(sexo);
+
         printf("\n");
 
         imprimir_duenios(lista_cliente,len_cliente);
@@ -415,9 +436,9 @@ int baja_Mascota(eMascotas lista_mascota[],int len,eCliente lista_cliente[],int 
     do
     {
         system("cls");
-        printf("-----    Baja de Mascota   -----\n\n");
-
-        id = getInt("Ingrese la ID: ");
+        printf("[     ------------    BAJA DE MASCOTAS    ------------     ]\n\n");
+        imprimir_mascotas(lista_mascota,len,lista_cliente,len_cliente,lista_Tipo,len_Tipo,lista_Raza,len_Raza);
+        id = getInt("\nIngrese la ID de la Mascota: ");
         indice = buscar_Mascota_por_ID(lista_mascota,len,id);
 
         if(indice == -1)
@@ -533,8 +554,10 @@ void modificacion_Mascota_por_ID(eMascotas lista_mascota[],int len,eCliente list
     do
     {
         system("cls");
-        printf("\n\n-----    Modificacion de Mascota  -----\n\n");
-        id = getInt("Ingrese la ID: ");
+        printf("[     ------------    MODIFICACION DE MASCOTAS    ------------     ]\n\n");
+        imprimir_mascotas(lista_mascota,len,lista_cliente,len_cliente,lista_Tipo,len_Tipo,lista_Raza,len_Raza);
+
+        id = getInt("\nIngrese la ID de la Mascota: ");
 
         indice = buscar_Mascota_por_ID(lista_mascota,len,id);
 
@@ -648,9 +671,10 @@ int baja_Cliente(eCliente listaCliente[],int len,eMascotas lista_Mascota[],int l
     do
     {
         system("cls");
-        printf("-----    Baja de Cliente   -----\n\n");
+        printf("[     ------------    BAJA DE CLIENTE    ------------     ]\n\n");
 
-        id = getInt("Ingrese la ID: ");
+        imprimir_duenios(listaCliente,len);
+        id = getInt("\nIngrese la ID del Cliente: ");
 
         indice = buscar_Cliente_por_ID(listaCliente,len,id);
 
@@ -664,7 +688,7 @@ int baja_Cliente(eCliente listaCliente[],int len,eMascotas lista_Mascota[],int l
 
             imprimi_Cliente_por_Indice(listaCliente,len,indice);
 
-            printf("Confirma Cliente? [S / N]: ");
+            printf("\n[Esta seguro de Dar de Baja al Cliente?.]\n[Recuerde que las Mascotas Relacionadas con el Cliente tambien se daran de baja.]\n\nConfirma Cliente? [S / N]: ");
             fflush(stdin);
             seguir = getchar();
             if(seguir == 'N')
@@ -704,6 +728,8 @@ void ordena_mascotas_por_tipo(eMascotas lista_Mascotas[],int len_Mascotas,eClien
 {
     eMascotas auxMascota;
 
+    system("cls");
+    printf("[     ------------    LISTA DE MASCOTAS ORDENADOS POR TIPO    ------------     ]\n\n");
     for(int i = 0 ; i < len_Mascotas-1; i++)
     {
         for(int j = i+1; j<len_Mascotas; j++)
@@ -717,13 +743,6 @@ void ordena_mascotas_por_tipo(eMascotas lista_Mascotas[],int len_Mascotas,eClien
                     lista_Mascotas[j] = auxMascota;
 
                 }
-                /*
-                if(strcmp(lista_Mascotas[i].tipo,lista_Mascotas[j].tipo)<0){
-                    auxMascota = lista_Mascotas[i];
-                    lista_Mascotas[i] = lista_Mascotas[j];
-                    lista_Mascotas[j] = auxMascota;
-                }
-                */
             }
         }
     }
@@ -733,7 +752,8 @@ void ordena_mascotas_por_tipo(eMascotas lista_Mascotas[],int len_Mascotas,eClien
 
 void listar_Cliente_con_mas_de_una_Mascota(eCliente listaCliente[],int len_Cliente,eMascotas lista_Mascota[],int len_Mascota)
 {
-
+    printf("[     ------------    LISTA CLIENTES CON MAS DE UNA MASCOTA    ------------     ]\n\n");
+    printf("ID    |       NOMBRE  |      APELLIDO |      LOCALIDAD  |   TELEFONO  | EDAD |  SEXO \n\n");
     for(int i = 0; i <len_Cliente; i++)
     {
         if(listaCliente[i].isEmpty == 0 && busca_mascotas_por_ID_Cliente(lista_Mascota,len_Mascota,listaCliente[i].id) == 0)
@@ -771,7 +791,8 @@ int busca_mascotas_por_ID_Cliente(eMascotas lista_Mascota[],int len_Mascota,int 
 
 void listar_mascotas_mas_de_3_anios(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
 {
-
+    printf("[     ------------    LISTA DE MASCOTAS CON MAS DE 3 ANIOS    ------------     ]\n\n");
+    printf("ID  |         NOMBRE  |        TIPO   |         RAZA  |    EDAD  |     PESO  |    SEXO |   NOMBRE DUENIO\n\n");
     for(int i = 0 ; i < len_Mascota; i++)
     {
         if(lista_Mascota[i].isEmpty == 0 && lista_Mascota[i].edad > 3)
@@ -787,10 +808,11 @@ void listar_mascotas_mas_de_3_anios(eMascotas lista_Mascota[],int len_Mascota,eC
 void listar_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza)
 {
     int tipo_Ingresado;
-    printf("   [     -----   Lista de Mascotas por Tipo   -----     ]\n\n");
+    printf("[     ------------    LISTA DE MASCOTAS POR TIPO    ------------     ]\n\n");
     imprime_all_tipos(lista_Tipo,len_Tipo);
-    tipo_Ingresado = getInt("Ingrese la ID de Tipo: ");
+    tipo_Ingresado = getInt("\nIngrese la ID de Tipo: ");
 
+    printf("[    -----    LISTA POR TIPO    -----    ]\n");
     printf("\nID  |         NOMBRE  |        TIPO   |         RAZA  |    EDAD  |   PESO  |    SEXO |   NOMBRE DUENIO\n\n");
 
     for(int i = 0; i < len_Mascota; i++)
@@ -842,8 +864,7 @@ void imprime_all_tipos(eTipo lista_Tipo[],int len_Tipo)
 {
     int flag = 0;
 
-    printf("[  ------- Lista de Tipos de Mascotas -------  ]\n\n");
-
+    printf("[     ------------    LISTA DE TIPO DE MASCOTAS    ------------     ]\n\n");
     printf("ID    |       TIPO   \n\n");
     for(int i=0; i < len_Tipo; i++)
     {
@@ -900,8 +921,7 @@ void imprime_all_razas(eRaza lista_Raza[],int len_Razas)
 {
     int flag = 0;
 
-    printf("[  ------- Lista de Raza de Mascotas -------  ]\n\n");
-
+    printf("[     ------------    LISTA DE RAZA DE MASCOTAS    ------------     ]\n\n");
     printf("ID     |      RAZA   \n\n");
     for(int i=0; i < len_Razas; i++)
     {
@@ -926,6 +946,7 @@ void ordena_duenios_por_cantidad_mascotas(eMascotas lista_Mascota[],int len_Masc
     int cant_duenioI;
     int cant_duenioJ;
 
+    printf("[     ------------    LISTA DE DUENIO ORDENADA POR CANTIDAD DE MASCOTAS    ------------     ]\n\n");
     for(int i = 0 ;i < len_Cliente-1; i++){
         if(listaCiente[i].isEmpty == 0){
             for(int j = i+1; j < len_Cliente;j ++){
@@ -966,7 +987,7 @@ void ordena_duenios_por_cantidad_mascotas_y_nombre(eMascotas lista_Mascota[],int
 
     int cant_duenioI;
     int cant_duenioJ;
-
+    printf("[   ------------    LISTA DE DUENIO ORDENADA POR CANTIDAD DE MASCOTAS Y ALFABETICAMENTE POR NOMBRE    ------------   ]\n\n");
     for(int i = 0 ;i < len_Cliente-1; i++){
         if(listaCiente[i].isEmpty == 0){
             for(int j = i+1; j < len_Cliente;j ++){
@@ -999,7 +1020,8 @@ void promedio_Edad_Mascotas(eMascotas lista_Mascota[],int len_Mascota){
 
     //printf("cantidad mascotas: %d\n",cantidad_Mascotas);
     //printf("suma total edades: %d\n",total_Edades);
-    printf("\n[ El Promedio de Edades entre las Mascotas es de : %0.2f ]\n",promedio);
+    printf("[   ------------    EL PROMEDIO DE EDAD ENTRE MASCOTAS    ------------   ]\n\n");
+    printf("[ El Promedio de Edades entre las Mascotas es de : %0.2f ]\n\n",promedio);
     system("pause");
 }
 
@@ -1035,8 +1057,13 @@ void promedio_Edad_Mascotas_por_Tipo(eMascotas lista_Mascota[],int len_Mascota,e
     float promedio;
     char nombre_tipo[31];
 
+    printf("[   ------------    EL PROMEDIO DE EDAD ENTRE MASCOTAS POR TIPO    ------------   ]\n\n");
     imprime_all_tipos(lista_tipo,len_tipo);
-    tipo = getInt("Ingrese Tipo: ");
+
+    do{
+        tipo = getInt("Ingrese Tipo: ");
+    }while(validacion_Tipo(lista_tipo,len_tipo,tipo) != 0);
+
 
     cantidad_Mascotas = cantidad_de_mascotas_por_tipo(lista_Mascota,len_Mascota,tipo);
     total_Edades = suma_de_Edades_Mascotas_por_tipo(lista_Mascota,len_Mascota,tipo);
@@ -1048,8 +1075,20 @@ void promedio_Edad_Mascotas_por_Tipo(eMascotas lista_Mascota[],int len_Mascota,e
         }
     }
 
-    printf("\n[ El Promedio de Edades entre las Mascotas del tipo %s es : %0.2f ]\n",nombre_tipo,promedio);
+    printf("[ El Promedio de Edades entre las Mascotas del tipo %s es : %0.2f ]\n\n",nombre_tipo,promedio);
     system("pause");
+}
+
+int validacion_Tipo(eTipo lista_Tipo[],int len_Tipo,int id_Tipo){
+    int allOk = -1;
+
+    for(int i = 0 ; i < len_Tipo; i++){
+        if(lista_Tipo[i].isEmpty == 0 && lista_Tipo[i].id == id_Tipo){
+            allOk = 0;
+        }
+    }
+
+    return allOk;
 }
 
 int cantidad_de_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo){

@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include "cliente.h"
 #include "string.h"
 #include "input.h"
@@ -19,7 +20,7 @@ void imprime_cliente(eCliente listaCliente){
 void imprimir_clientes(eCliente listaCliente[],int len){
     int flag = 0;
 
-    printf("------- Lista de Clientes -------\n\n");
+    printf("     [     -------    LISTA DE CLIENTES     -------     ]\n\n");
 
     printf("ID    |       NOMBRE  |      APELLIDO |      LOCALIDAD  |   TELEFONO  | EDAD |  SEXO \n\n");
     for(int i=0; i < len; i++)
@@ -34,9 +35,6 @@ void imprimir_clientes(eCliente listaCliente[],int len){
     {
         printf("\n---   No hay CLIENTES que mostrar   ---\n");
     }
-    system("pause");
-
-
 }
 
 int inicializar_clientes(eCliente listaCliente[],int len)
@@ -108,8 +106,7 @@ int alta_Cliente(eCliente listaCliente[],int len,int id_cliente){
     char sexo;
 
     system("cls");
-    printf("\n   -----    Alta de Cliente    -----   \n\n");
-
+    printf("[     ------------    ALTA DE CLIENTE    ------------     ]\n\n");
     indice = buscarLibre_Cliente(listaCliente,len);
 
     if(indice == -1)
@@ -123,7 +120,8 @@ int alta_Cliente(eCliente listaCliente[],int len,int id_cliente){
         getChar("Ingrese Localidad: ",51,localidad);
         telefono = getInt("Ingrese Telefono: ");
         edad = getInt("Ingrese Edad: ");
-        sexo = getCaracter("Ingrese Sexo [ M / F ]: ");
+        sexo = getCaracter("Ingrese Sexo [ M (Masculino) / F (Femenido)]: ");
+        sexo = toupper(sexo);
         printf("\n");
 
 
@@ -254,11 +252,11 @@ void modificacion_Cliente_por_ID(eCliente listaCliente[],int len){
     do
     {
         system("cls");
-        printf("\n\n[  -----    Modificacion de Cliente  -----  ]\n\n");
+        printf("[     ------------    MODIFICACION DE CLIENTE    ------------     ]\n\n");
 
         imprimir_clientes(listaCliente,len);
 
-        id = getInt("\nIngrese la ID: ");
+        id = getInt("\nIngrese la ID del Cliente: ");
         indice = buscar_Cliente_por_ID(listaCliente,len,id);
 
         if(indice != -1)
@@ -343,4 +341,20 @@ int cantidad_total_clientes(eCliente listaCliente[],int len_Cliente){
 
     return total;
 }
+
+/** 19- El porcentaje que tengo entre varones y mujeres de mis clientes.*/
+void porcentaje_Varones_Mujeres(eCliente lista_Cliente[],int len_Cliente){
+    int total_Clientes = cantidad_total_clientes(lista_Cliente,len_Cliente);
+    int masculino = cantidad_cliente_por_sexo(lista_Cliente,len_Cliente,0);
+    int femeninos = cantidad_cliente_por_sexo(lista_Cliente,len_Cliente,1);
+
+    float  porcentaje_Masculino =  (float) (masculino *  100) / total_Clientes;
+    float porcentaje_Femenino =  (float) (femeninos * 100) / total_Clientes;
+
+    printf("[   ------------    EL PORCENTAJE DE CLIENTES MASCULINOS Y FEMENINOS    ------------   ]\n\n");
+    printf("\nEl Porcentaje de Clientes Masculinos es : %0.2f% \nEl Porcentaje Clientas Femeninas es: %0.2f%\n",porcentaje_Masculino,porcentaje_Femenino);
+}
+
+
+
 

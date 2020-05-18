@@ -22,6 +22,7 @@ int main()
     char seguir = 'n';
     int id_Mascota = 12;
     int id_Cliente = 6;
+    int flag = 0;
 
 
     if(inicializar_clientes(lista_cliente,CLI) == 0)
@@ -34,21 +35,27 @@ int main()
                 {
                     do
                     {
-
-                        harcodeo_Cliente(lista_cliente);
-                        harcodeo_Mascotas(lista_mascotas);
-                        harcodeo_Tipo(lista_tipo);
-                        harcodeo_Raza(lista_raza);
+                        if(flag == 0){
+                            harcodeo_Cliente(lista_cliente);
+                            harcodeo_Mascotas(lista_mascotas);
+                            harcodeo_Tipo(lista_tipo);
+                            harcodeo_Raza(lista_raza);
+                            flag = 1;
+                        }
                         switch(menu())
                         {
                         case 1:
+                            system("cls");
                             imprimir_clientes(lista_cliente,CLI);
+                            system("pause");
                             break;
                         case 2:
+                            system("cls");
                             imprimir_mascotas(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
+                            system("pause");
                             break;
                         case 3:
-                            imprime_all_cliente_mascota(lista_mascotas,MAS,lista_cliente,CLI);
+                            imprime_all_cliente_mascota(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 4:
                             if(alta_Mascota(lista_mascotas,MAS, id_Mascota,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ) == 0)
@@ -83,39 +90,58 @@ int main()
                             break;
                         case 9:
                             ordena_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
+                            system("pause");
                             break;
                         case 10:
                             modificacion_Cliente_por_ID(lista_cliente,CLI);
                             break;
                         case 11:
+                            system("cls");
                             listar_Cliente_con_mas_de_una_Mascota(lista_cliente,CLI,lista_mascotas,MAS);
                             break;
                         case 12:
+                            system("cls");
                             listar_mascotas_mas_de_3_anios(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 13:
+                            system("cls");
                             listar_mascotas_por_tipo(lista_mascotas,MAS,lista_cliente,CLI,lista_tipo,TIP,lista_raza,RAZ);
                             break;
                         case 14:
+                            system("cls");
                             ordena_duenios_por_cantidad_mascotas(lista_mascotas,MAS,lista_cliente,CLI);
+                            system("pause");
                             break;
                         case 15:
+                            system("cls");
                             ordena_duenios_por_cantidad_mascotas_y_nombre(lista_mascotas,MAS,lista_cliente,CLI);
+                            system("pause");
                             break;
                         case 16:
                             promedio_Edad_Mascotas(lista_mascotas,MAS);
                             break;
                         case 17:
+                            system("cls");
                             promedio_Edad_Mascotas_por_Tipo(lista_mascotas,MAS,lista_tipo,TIP);
                             break;
                         case 18:
                             promedio_de_varones_y_mujeres_Clientes(lista_cliente,CLI);
                             break;
+                        case 19:
+                            system("cls");
+                            porcentaje_Varones_Mujeres(lista_cliente,CLI);
+                            system("pause");
+                            break;
+                        case 20:
+
+                            break;
                         case 28:
+                            system("cls");
                             imprime_all_tipos(lista_tipo,TIP);
                             system("pause");
                             break;
                         case 29:
+                            system("cls");
                             imprime_all_razas(lista_raza,RAZ);
                             system("pause");
                             break;

@@ -40,8 +40,8 @@ void imprimir_mascotas(eMascotas listaMascota[],int len,eCliente lista_cliente[]
 int inicializar_mascotas(eMascotas listaMascota[],int len);
 int inicializa_all_mascotas(eMascotas listaMascota[],int len);
 
-void imprime_cliente_mascota(eMascotas listaMascota,eCliente listaCliente,int view);
-void imprime_all_cliente_mascota(eMascotas lista_mascota[],int len_mascota,eCliente lista_cliente[],int len_cliente);
+void imprime_cliente_mascota(eMascotas listaMascota,eCliente listaCliente,int view,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza);
+void imprime_all_cliente_mascota(eMascotas lista_mascota[],int len_mascota,eCliente lista_cliente[],int len_cliente,eTipo lista_Tipo[],int len_Tipo,eRaza lista_Raza[],int len_Raza);
 
 
 eMascotas addMascota(int id,char nombre[],int tipo,int raza,int edad,float peso,char sexo,int idCliente);
@@ -87,6 +87,7 @@ int cantidad_de_mascotas(eMascotas lista_Mascota[],int len_Mascota);
 int suma_de_Edades_Mascotas(eMascotas lista_Mascota[],int len_Mascota);
 
 /**17*/void promedio_Edad_Mascotas_por_Tipo(eMascotas lista_Mascota[],int len_Mascota,eTipo lista_tipo[],int len_tipo);
+int validacion_Tipo(eTipo lista_Tipo[],int len_Tipo,int id_Tipo);
 int cantidad_de_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
 int suma_de_Edades_Mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
 

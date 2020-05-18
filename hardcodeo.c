@@ -2,11 +2,11 @@
 
 
  void harcodeo_Cliente(eCliente lista_cliente[]){
-    eCliente aux[5] = {{1,"pepe","argento","avellaneda",42015222,41,'m',0},
-                       {2,"moni","paredes","lanuns",42105255,38,'f',0},
-                       {3,"paola","mercedes","ezeiza",42515512,22,'f',0},
-                       {4,"coqui","lopez","quilmes",52442111,22,'m',0},
-                       {5,"jose","paredes","sarandi",42515511,35,'m',0}};
+    eCliente aux[5] = {{1,"pepe","argento","avellaneda",42015222,41,'M',0},
+                       {2,"moni","paredes","lanuns",42105255,38,'F',0},
+                       {3,"paola","mercedes","ezeiza",42515512,22,'F',0},
+                       {4,"coqui","lopez","quilmes",52442111,22,'M',0},
+                       {5,"jose","paredes","sarandi",42515511,35,'M',0}};
 
     for(int i = 0; i< 5;i++){
         lista_cliente[i].id = aux[i].id;
@@ -22,17 +22,17 @@
  }
 
  void harcodeo_Mascotas(eMascotas lista_mascotas[]){
-    eMascotas aux[11] = {{1,"lolo",1,1,4,11.50,'m',1,0},
-                         {2,"pepe",1,2,5,12.00,'m',1,0},
-                         {3,"maria",2,3,3,4.00,'h',2,0},
-                         {4,"lola",2,3,4,4.30,'h',2,0},
-                         {5,"carlos",1,2,6,10.00,'m',5,0},
-                         {6,"pablo",1,1,5,12.10,'m',3,0},
-                         {7,"polo",3,4,2,2.50,'m',3,0},
-                         {8,"jose",1,5,5,12.2,'m',4,0},
-                         {9,"pepo",2,3,4,3.5,'h',1,0},
-                         {10,"carlos",2,3,4,4.20,'m',5,0},
-                         {11,"ana",2,3,5,4.00,'h',5,0}};
+    eMascotas aux[11] = {{1,"lolo",1,1,4,11.50,'M',1,0},
+                         {2,"pepe",1,2,5,12.00,'M',1,0},
+                         {3,"maria",2,3,3,4.00,'H',2,0},
+                         {4,"lola",2,3,4,4.30,'H',2,0},
+                         {5,"carlos",1,2,6,10.00,'M',5,0},
+                         {6,"pablo",1,1,5,12.10,'M',3,0},
+                         {7,"polo",3,4,2,2.50,'M',3,0},
+                         {8,"jose",1,5,5,12.2,'M',4,0},
+                         {9,"pepo",2,3,4,3.5,'H',1,0},
+                         {10,"carlos",2,3,4,4.20,'M',5,0},
+                         {11,"ana",2,3,5,4.00,'H',5,0}};
 
     for(int i = 0; i< 11;i++){
         lista_mascotas[i].id = aux[i].id;
