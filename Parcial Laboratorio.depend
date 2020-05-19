@@ -68,7 +68,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1589889131 c:\users\balde\desktop\parcial_laboratorio_1\mascotas.h
+1589894254 c:\users\balde\desktop\parcial_laboratorio_1\mascotas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -83,7 +83,7 @@
 	<stdlib.h>
 	<string.h>
 
-1589889750 source:c:\users\balde\desktop\parcial_laboratorio_1\mascotas.c
+1589893494 source:c:\users\balde\desktop\parcial_laboratorio_1\mascotas.c
 	<ctype.h>
 	"mascotas.h"
 	"input.h"
@@ -93,7 +93,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1589889980 source:c:\users\balde\desktop\parcial_laboratorio_1\menu.c
+1589893620 source:c:\users\balde\desktop\parcial_laboratorio_1\menu.c
 	"menu.h"
 
 1589889875 source:c:\users\balde\desktop\parcial_laboratorio_1\cliente.c
@@ -104,7 +104,7 @@
 	"mascotas.h"
 	"menu.h"
 
-1589889699 source:c:\users\balde\desktop\parcial_laboratorio_1\main.c
+1589893776 source:c:\users\balde\desktop\parcial_laboratorio_1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"

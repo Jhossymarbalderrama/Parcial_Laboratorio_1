@@ -92,6 +92,9 @@ int validacion_Tipo(eTipo lista_Tipo[],int len_Tipo,int id_Tipo);
 int cantidad_de_mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
 int suma_de_Edades_Mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,int tipo);
 
+void lista_duenios_con_mascotas_del_mismo_sexo(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente);
+int muestra_clientes_mascotas_con_un_mismo_sexo(eMascotas lista_Mascota[],int len_Mascota,eCliente listaCliente[],int len_Cliente,char sexo,int cantidad_mascotas);
+
 /**Otras Estructuras TIPO Y RAZA*/
 /**TIPO*/
 int inicializar_tipos(eTipo lista_Tipo[],int len_Tipo);

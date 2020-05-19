@@ -136,6 +136,11 @@ int main()
                         case 20:
                             promedio_de_varones_y_mujeres_Clientes(lista_cliente,CLI);
                             break;
+                        case 21:
+                            system("cls");
+                            lista_duenios_con_mascotas_del_mismo_sexo(lista_mascotas,MAS,lista_cliente,CLI);
+                            system("pause");
+                            break;
                         case 28:
                             system("cls");
                             imprime_all_tipos(lista_tipo,TIP);
