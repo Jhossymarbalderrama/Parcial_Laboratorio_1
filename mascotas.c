@@ -914,7 +914,7 @@ int inicializar_all_razas(eRaza lista_Raza[],int len_Raza)
 
 void imprime_raza(eRaza lista_Raza)
 {
-    printf("%2d\t %10s\t  \n",lista_Raza.id,lista_Raza.raza);
+    printf("%2d\t %10s\t %10s  \n",lista_Raza.id,lista_Raza.raza,lista_Raza.pais);
 }
 
 void imprime_all_razas(eRaza lista_Raza[],int len_Razas)
@@ -922,7 +922,7 @@ void imprime_all_razas(eRaza lista_Raza[],int len_Razas)
     int flag = 0;
 
     printf("[     ------------    LISTA DE RAZA DE MASCOTAS    ------------     ]\n\n");
-    printf("ID     |      RAZA   \n\n");
+    printf("ID     |      RAZA     |    PAIS\n\n");
     for(int i=0; i < len_Razas; i++)
     {
         if(lista_Raza[i].isEmpty == 0)
@@ -1114,5 +1114,6 @@ int suma_de_Edades_Mascotas_por_tipo(eMascotas lista_Mascota[],int len_Mascota,i
 
     return total;
 }
+
 
 

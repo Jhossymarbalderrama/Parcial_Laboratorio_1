@@ -357,4 +357,21 @@ void porcentaje_Varones_Mujeres(eCliente lista_Cliente[],int len_Cliente){
 
 
 
+/**18 -el porcentaje que tengo de mujeres sobre el total de clientes.*/
 
+void porcentaje_de_Mujeres_sobre_clientes(eCliente lista_Cliente[],int len_Cliente){
+    float total = porcentaje_mujeres(lista_Cliente,len_Cliente);
+
+    printf("[   ------------    EL PORCENTAJE DE CLIENTES FEMENINOS    ------------   ]\n\n");
+    printf("\nEl Porcentaje Clientas Femeninas es: %0.2f%\n",total);
+}
+
+
+float porcentaje_mujeres(eCliente lista_Cliente[],int len_Cliente){
+    int total_Clientes = cantidad_total_clientes(lista_Cliente,len_Cliente);
+    int femeninos = cantidad_cliente_por_sexo(lista_Cliente,len_Cliente,1);
+
+    float porcentaje_Femenino =  (float) (femeninos * 100) / total_Clientes;
+
+    return porcentaje_Femenino;
+}

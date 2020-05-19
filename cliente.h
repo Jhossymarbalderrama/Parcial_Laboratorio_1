@@ -40,3 +40,6 @@ int cantidad_cliente_por_sexo(eCliente listaCliente[],int len_Cliente,int sexo);
 int cantidad_total_clientes(eCliente listaCliente[],int len_Cliente);
 
 /**19*/void porcentaje_Varones_Mujeres(eCliente lista_Cliente[],int len_Cliente);
+
+void porcentaje_de_Mujeres_sobre_clientes(eCliente lista_Cliente[],int len_Cliente);
+float porcentaje_mujeres(eCliente lista_Cliente[],int len_Cliente);

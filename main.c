@@ -125,7 +125,8 @@ int main()
                             promedio_Edad_Mascotas_por_Tipo(lista_mascotas,MAS,lista_tipo,TIP);
                             break;
                         case 18:
-                            promedio_de_varones_y_mujeres_Clientes(lista_cliente,CLI);
+                            porcentaje_de_Mujeres_sobre_clientes(lista_cliente,CLI);
+                            system("pause");
                             break;
                         case 19:
                             system("cls");
@@ -133,7 +134,7 @@ int main()
                             system("pause");
                             break;
                         case 20:
-
+                            promedio_de_varones_y_mujeres_Clientes(lista_cliente,CLI);
                             break;
                         case 28:
                             system("cls");

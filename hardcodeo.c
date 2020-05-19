@@ -64,16 +64,21 @@ void harcodeo_Tipo(eTipo lista_Tipo[]){
 }
 
 void harcodeo_Raza(eRaza lista_Raza[]){
-    eRaza auxRaza[5] = {{1,"Pitbull",0},
-                        {2,"Bulldog",0},
-                        {3,"Siames",0},
-                        {4,"Iguana",0},
-                        {5,"Labrador",0}};
+    eRaza auxRaza[8] = {{1,"Pitbull","Aleman",0},
+                        {2,"Bulldog","Frances",0},
+                        {3,"Siames","Persa",0},
+                        {4,"Iguana Overo","Argentina",0},
+                        {5,"Pastor","Alemna",0},
+                        {6,"Labrador","Argentina",0},
+                        {7,"Iguana crestada","Egipto",0},
+                        {8,"Abisinio","Aleman",0}};
 
-    for(int i = 0; i < 5;i++){
+    for(int i = 0; i < 8;i++){
         lista_Raza[i].id = auxRaza[i].id;
         strcpy(lista_Raza[i].raza,auxRaza[i].raza);
+        strcpy(lista_Raza[i].pais,auxRaza[i].pais);
         lista_Raza[i].isEmpty = auxRaza[i].isEmpty;
+
     }
 
 }

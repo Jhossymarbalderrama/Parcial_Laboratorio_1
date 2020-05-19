@@ -29,6 +29,7 @@ typedef struct{
 typedef struct{
     int id;
     char raza[31];
+    char pais[41];
     int isEmpty;
 }eRaza;
 
